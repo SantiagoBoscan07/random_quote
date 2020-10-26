@@ -1,0 +1,86 @@
+<html>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>    <head>
+        <script>
+            const QUOTELIST = [
+                {
+                    quote: "You can reread a book and see a movie over and over and enjoy it as much as the first time.",
+                    author:"Hirohiko Araki"
+                }, {
+                    quote: "My body is ready.",
+                    author:"Reggie Fils-aime"
+                },{
+                    quote: "There are two ways: my way and the highway.",
+                    author:"Quentin Tarantino"
+                },{
+                    quote: "I don't dream at night, I dream at day, I dream all day. I'm dreaming for a living.",
+                    author:"Steven Spielberg"
+                },{
+                    quote: "Believe you can and you're halfway there.",
+                    author:"Theodore Roosevelt"
+                },{
+                    quote: "Every child is an artist. The problem is how to remain an artist once we grow up.",
+                    author:"Pablo Picasso"
+                },{
+                    quote: "Educating the mind without educating the heart is no education at all.",
+                    author:"Aristotle"
+                },{
+                    quote: "Act as if what you do makes a difference.",
+                    author:"William James"
+                },{
+                    quote: "If opportunity doesn't knock, build a door.",
+                    author:"Milton Berle"
+                },
+        ];
+            window.onload = init;
+            function init(){
+                generateQuote()
+            }
+            function generateQuote(){
+                let quoteSize = QUOTELIST.length;
+                let randomSelect = Math.floor(Math.random() * quoteSize);
+                let randomQuoteList = QUOTELIST[randomSelect];
+                document.getElementById("text").innerText = randomQuoteList.quote;
+                document.getElementById("author").innerText = randomQuoteList.author;
+                document.getElementById("tweet-quote").href = "https://twitter.com/intent/tweet?text=" + randomQuoteList.quote + " -" + randomQuoteList.author;
+            }
+        </script>
+            <style>
+                body{
+                    padding-top: 170px;
+                    background-color:#8fa998;
+
+                }
+                wrapper{
+                    text-align:center;
+                    display:block;
+                    border:solid #4f345a 2px;
+                    margin: 10px;
+                    background-color:#9cbfa7;
+                }
+                #text{
+                    font-size:48px;
+                    font-family:'Courier New';
+                    color: #5D4E6D;
+                }
+                #author{
+                    font-size:32px;
+                    font-family:'Courier New';
+                    color: #5D4E6D;
+                }
+                .btn{
+                    display:inline-block;
+                    margin:5px;
+                    font-family:'Courier New';
+                }
+            </style>
+    </head>
+    <body>
+        <wrapper id="quote-box">
+            <div id="text"></div>
+            <div id="author"></div>
+            <button id="new-quote" type="button" class="btn btn-primary" onClick="generateQuote();">Generate Quote</button>
+            <a href="#" id="tweet-quote"  target="_blank" ><button type="button" class="btn btn-info">Tweet Quote</button></a>
+        </wrapper>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    </body>
+</html>
